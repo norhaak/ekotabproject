@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+
+/* General */
+html {
+	font-family: "Montserrat";
+	background-color: #E0E0E0;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.row {
+	margin: 0!important;
+}
+
+/* student list (no student) */
+.nostudent-wrapper {
+	margin-top: 150px;
+	margin-bottom: 50px;
+	padding: 80px 0px;
+	border: 6px solid #9E9E9E;
+	border-style: dashed;
+}
+
+.nostudent-wrapper h3 {
+	padding: 10px;
+	margin-bottom: 50px;
+}
+
+/* student detail statistics */
+.section-stats h1 {
+	font-size: 4vw;
+	margin: 15px 0;
+}
+
+@media(max-width: 992px) {
+	.section-stats h1 {
+		font-size: calc(16px + 6vw);
+	}
+}
+
+/* student detail steps */
+.section-steps button {
+	padding: 0px 40px;
+	font-weight: bold;
+	text-shadow: 0px 3px 4px rgba(0, 0, 0, .25);
+	background-color: #6FCF97;
+}
+
+.section-steps .step {
+	font-size: 16px;
+	border-radius: 0;
+	margin: 0;
+}
+
+.section-steps .step .category {
+	font-size: 13px;
+}
+
+.section-steps li:nth-child(even) .step {
+	background-color: #f2f2f2;
+}

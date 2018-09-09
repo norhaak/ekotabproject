@@ -1,0 +1,65 @@
+{% extends 'ekotab/base.html' %}
+{% block content %}
+
+<div class="container">
+
+	{% if student_list %}
+	<section class="section section-steps">
+		<div class="row">
+			<button class="btn waves-effect right">
+				<i class="material-icons white-text left">add_circle</i>
+				Add Student
+			</button>
+		</div>
+
+		<ul class="z-depth-1">
+
+			{% for student in student_list %}
+
+			<li>
+				<div class="card-panel z-depth-0 step">
+					<div class="row">
+
+						<div class="col l6">
+							<a href="{% url 'ekotab:detail' student.slug %}">
+								<span class="title">{{ student.first_name }} {{ student.last_name }}</span>
+							</a>
+						</div>
+
+						<div class="col l3">
+							<span class="title bold">{{ student.getCurrentStep.title }}</span>
+						</div>
+
+						<div class="col 1">
+							<span class="title bold">{{ student.getCurrentStep.get_status_display }}</span>
+						</div>
+
+						<a href="">
+							<i class="material-icons red-text right">close</i>
+						</a>
+
+					</div>
+				</div>
+			</li>
+
+			{% endfor %}
+
+		</ul>
+
+	</section>
+
+	{% else %}
+
+	<div class="nostudent-wrapper center">
+		<h3 class="grey-text">Sorry, you don't have any students, yet.</h3>
+		<a href="" class="btn-large grey">
+			<i class="material-icons white-text left">add_circle</i>
+			<span class="bold">Add Students</span>
+		</a>
+	</div>
+
+	{% endif %}
+
+</div>
+
+{% endblock %}
