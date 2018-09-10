@@ -1,4 +1,6 @@
 from django.db import models
+from django.forms import ModelForm
+from django.urls import reverse
 from django.utils.text import slugify
 import datetime
 from .utils import ChoiceEnum
@@ -9,6 +11,7 @@ STEP_STATUSES = (
     ('F', 'Failed'),
     ('P', 'Passed')
 )
+
 
 class Student(models.Model):
     first_name = models.CharField(max_length=50)
@@ -30,6 +33,12 @@ class Student(models.Model):
         if len(query_result) == 1:
             current_step = query_result[0]
         return current_step
+
+
+class StudentForm(ModelForm):
+    class Meta:
+        model = Student
+        fields = ['first_name', 'last_name', 'email', 'phone_number']
 
 
 class Statuses(ChoiceEnum):

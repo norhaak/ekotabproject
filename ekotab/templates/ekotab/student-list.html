@@ -6,10 +6,12 @@
 	{% if student_list %}
 	<section class="section section-steps">
 		<div class="row">
-			<button class="btn waves-effect right">
-				<i class="material-icons white-text left">add_circle</i>
-				Add Student
-			</button>
+			<a href="/student/add">
+				<button class="btn waves-effect right">
+					<i class="material-icons white-text left">add_circle</i>
+					Add Student
+				</button>
+			</a>
 		</div>
 
 		<ul class="z-depth-1">
@@ -36,7 +38,7 @@
 							</span>
 						</div>
 
-						<a href="">
+						<a href="student/{{ student.slug }}/delete">
 							<i class="material-icons red-text right">close</i>
 						</a>
 

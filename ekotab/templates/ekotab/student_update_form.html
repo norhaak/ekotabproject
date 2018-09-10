@@ -1,0 +1,18 @@
+{% extends 'ekotab/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="container">
+    <div class="section section-student-update center">
+        <h3>Update student detail</h3>
+        <form method="post">{% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Update" class="btn">
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

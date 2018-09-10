@@ -82,3 +82,8 @@ html {
 	color: blue;
 	font-weight: bold;
 }
+
+/* student delete form */
+.section-student-delete {
+	margin: 200px 0;
+}

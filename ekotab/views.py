@@ -1,5 +1,57 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Student, Step, Statuses
+from django.http import HttpResponseRedirect
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
+from .models import Student, Step, Statuses, StudentForm
+from django.urls import reverse_lazy
+from django.utils.text import slugify
+
+
+class StudentCreate(CreateView):
+    model = Student
+    fields = ['first_name', 'last_name', 'email', 'phone_number']
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.save()
+
+        return HttpResponseRedirect(self.get_success_url())
+
+    def get_success_url(self):
+        return slugify(self.request.POST['first_name'])
+
+
+class StudentUpdate(UpdateView):
+    model = Student
+    fields = ['first_name', 'last_name', 'email', 'phone_number']
+    template_name_suffix = '_update_form'
+    success_url = reverse_lazy('ekotab:list')
+
+
+class StudentDelete(DeleteView):
+    model = Student
+    fields = ['first_name', 'last_name', 'email', 'phone_number']
+    success_url = reverse_lazy('ekotab:list')
+
+
+class StepCreate(CreateView):
+    model = Step
+    fields = ['first_name', 'last_name', 'email', 'phone_number']
+
+class StepUpdate(UpdateView):
+    model = Step
+    fields = ['first_name', 'last_name', 'email', 'phone_number']
+    template_name_suffix = '_update_form'
+
+
+class StepDelete(DeleteView):
+    model = Step
+    fields = ['first_name', 'last_name', 'email', 'phone_number']
+    success_url = reverse_lazy('list')
+
+
+
+
+
 
 
 def student_list(request):
