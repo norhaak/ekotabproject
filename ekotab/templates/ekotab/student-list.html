@@ -31,7 +31,9 @@
 						</div>
 
 						<div class="col 1">
-							<span class="title bold">{{ student.getCurrentStep.get_status_display }}</span>
+							<span class="step-status-{{ student.getCurrentStep.get_status_display|lower }}">
+								{{ student.getCurrentStep.get_status_display }}
+							</span>
 						</div>
 
 						<a href="">
