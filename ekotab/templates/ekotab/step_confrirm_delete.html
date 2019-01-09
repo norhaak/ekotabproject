@@ -1,0 +1,15 @@
+{% extends 'ekotab/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <div class="section-student-delete center">
+        <form method="post">{% csrf_token %}
+            <p>Are you sure you want to delete "{{ object }}"?</p>
+            <input type="submit" value="Confirm" class="btn">
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -35,18 +35,18 @@ class StudentDelete(DeleteView):
 
 class StepCreate(CreateView):
     model = Step
-    fields = ['first_name', 'last_name', 'email', 'phone_number']
+    fields = ['title']
 
 class StepUpdate(UpdateView):
     model = Step
-    fields = ['first_name', 'last_name', 'email', 'phone_number']
+    fields = ['status', 'date_submitted', 'is_current_step']
     template_name_suffix = '_update_form'
 
 
 class StepDelete(DeleteView):
     model = Step
-    fields = ['first_name', 'last_name', 'email', 'phone_number']
-    success_url = reverse_lazy('list')
+    fields = ['title', 'status', 'date_added', 'is_current_step']
+    success_url = reverse_lazy('ekotab:detail')
 
 
 

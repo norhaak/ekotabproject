@@ -1,0 +1,21 @@
+{% extends 'ekotab/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+
+    <section class="section step-form center">
+        <h1>
+            Add new step
+        </h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" class="btn" value="Add Step">
+        </form>
+
+    </section>
+
+</div>
+
+{% endblock %}
